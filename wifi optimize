@@ -1,0 +1,30 @@
+ settings put global wifi_framework_scan_always_enabled 0  
+echo "reducing background scan for battery save"
+ settings put global network_avoid_bad_wifi 1
+echo "avoiding bad network"
+ settings put global wifi_watchdog_poor_network_test_enabled 0
+echo "stoping android from test wifi quality"
+ settings put secure wifi_pno_frequency_culling_enabled 1
+echo "optimize background wifi scaning"
+ settings put secure wifi_pno_recency_sorting_enabled 1
+echo "prioritized connected wifi"
+ settings put global wifi_score_params 6
+echo ""
+ settings put global wifi_scan_throttle_enabled 1
+echo "scan throttle enable"
+ settings put global wifi_supplicant_scan_interval 180
+echo "changing scan time to 3 min"
+ settings put secure wifi_associated_network_selection_enabled 1
+echo "smart connect enable"
+ settings put global wifi_auto_reconnect 1
+echo "auto_reconnect enable"
+ settings put global wifi_max_dtim_multiplier 2
+echo " adujust dtim "
+ settings put global wifi_country_code "IN"
+echo " india select"
+ settings put global wifi_sta_maximum_connection_score 45
+echo " improve connection score"
+ settings put global wifi_watchdog_background_check_enabled 0
+echo "disable background check"
+settings put global wifi_score_params_current_network_boost 40
+echo "increase priority to stay conneced to wifi 
