@@ -1,0 +1,58 @@
+Analysis of Your Device's Default Buffer Sizes
+
+1️⃣ TCP Receive Buffer (tcp_rmem):
+
+2097152  4194304  8388608
+
+Min: 2 MB
+
+Default: 4 MB
+
+Max: 8 MB
+
+✅ Good for stable connections.
+
+
+2️⃣ TCP Send Buffer (tcp_wmem):
+
+262144  524288  1048576
+
+Min: 256 KB
+
+Default: 512 KB
+
+Max: 1 MB
+
+⚠️ A bit low for high-speed networks. Increasing may improve upload performance.
+
+
+3️⃣ Max Receive Buffer (rmem_max):
+
+16777216 → 16 MB
+
+✅ Very high, great for fast downloads.
+
+
+4️⃣ Max Send Buffer (wmem_max):
+
+8388608 → 8 MB
+
+✅ Good, but can be increased if needed.
+
+
+
+---
+
+Suggestions for Performance Boost (Optional)
+
+If you want to increase buffer sizes for faster network speeds:
+
+adb shell sysctl -w net.ipv4.tcp_rmem="4096 87380 16777216"
+adb shell sysctl -w net.ipv4.tcp_wmem="4096 65536 16777216"
+adb shell sysctl -w net.core.rmem_max=16777216
+adb shell sysctl -w net.core.wmem_max=16777216
+
+⚠️ These require root access. Without root, you can only check values, not modify them.
+
+Your current settings are already optimized, except for TCP send buffer (tcp_wmem). If you face slow upload speeds, that’s where you might need an increase.
+
